@@ -1,23 +1,29 @@
 package Displays;
 
-import java.util.ArrayList;
+import java.util.Random;
 
 import WeatherData.WeatherData;
 
 public abstract class Display {
 
-	private ArrayList<WeatherData> weatherDataList = new ArrayList<>();
+	private WeatherData weatherData;
+	private int id;
 
+	public Display(WeatherData wt){
+		this.weatherData = wt;
+	}
 	public Display(){
+		Random rn = new Random();
+		id = rn.nextInt(1000);
 	}
 
-	public ArrayList<WeatherData> getWeatherDataList() {
-		return weatherDataList;
+	public WeatherData getWeatherData() {
+		return weatherData;
 	}
 
-	public void addWeatherData(WeatherData weatherData) {
+	public void setWeatherData(WeatherData weatherData) {
 		if(weatherData!=null){
-			this.weatherDataList.add(weatherData);
+			this.weatherData=weatherData;
 			return;
 		}
 
@@ -25,12 +31,15 @@ public abstract class Display {
 		System.exit(-1);
 	}
 
-	public abstract void draw(int index);
+	public abstract void draw();
 	
-	public void update(){
 
-		for(WeatherData weatherData : weatherDataList){
-			weatherData.update();
-		}
+	public void notifyDisplay(){
+		System.out.println("No Observer:"+id+" Atualizado o WeatherData \n\n");
+		return ;
+	}
+	
+	public int getId() {
+		return this.getId();
 	}
 }

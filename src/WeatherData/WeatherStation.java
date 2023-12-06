@@ -3,8 +3,9 @@ package WeatherData;
 import java.util.Random;
 
 public class WeatherStation {
-	int temperatura;
-	int umidade;
+	private int temperatura;
+	private int umidade;
+	private int pressao;
 	
 	public WeatherStation() {
 		// TODO Auto-generated constructor stub
@@ -29,8 +30,17 @@ public class WeatherStation {
 		this.umidade = umidade;
 	}
 
+	public int getPressao() {
+		return pressao;
+	}
+
+	public void setPressao(int pressao) {
+		this.pressao = pressao;
+	}
+	
 	public void update() {
 		this.temperatura = new Random().nextInt(60);
 		this.umidade = new Random().nextInt(60);
+		this.pressao = new Random().nextInt(60);
 	}
 }
