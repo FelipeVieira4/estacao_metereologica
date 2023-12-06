@@ -14,8 +14,8 @@ public class WeatherDataCentral {
 		weatherData.add(new WeatherStation());
 		weatherData.add(new WeatherStation());
 		
-		Display ccd = new DisplayFactory().criarConditionsDisplay(weatherData);
-		Display sd = new DisplayFactory().criarStatisticsDisplay(weatherData);
+		Display ccd = new DisplayFactory().criarConditionsDisplay();
+		Display sd = new DisplayFactory().criarStatisticsDisplay();
 
 
 		for(;;) {

@@ -1,14 +1,12 @@
 package Displays;
 
-import WeatherData.WeatherData;
-
 public class DisplayFactory {
 
-  public StatisticsDisplay criarStatisticsDisplay(WeatherData wd){
-    return new StatisticsDisplay(wd);
+  public StatisticsDisplay criarStatisticsDisplay(){
+    return new StatisticsDisplay();
   }
 
-    public CurrentConditionsDisplay criarConditionsDisplay (WeatherData wd){
-    return new CurrentConditionsDisplay(wd);
+  public CurrentConditionsDisplay criarConditionsDisplay (){
+    return new CurrentConditionsDisplay();
   }
 }
