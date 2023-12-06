@@ -4,23 +4,21 @@ import WeatherData.*;
 
 public class StatisticsDisplay extends Display{
 
-	public StatisticsDisplay(WeatherData wd) {
-		super(wd);
-	}
-
 	@Override
-	public void draw() {
+	public void draw(int index) {
 		// TODO Auto-generated method stub
 		int tempMedia = 0;
 		int umidMedia = 0;
 		
-		for(WeatherStation i: this.getWeatherData().getWeatherStations()) {
+		WeatherData weatherData = this.getWeatherDataList().get(index);
+
+		for(WeatherStation i: weatherData.getWeatherStations()) {
 			tempMedia+=i.getTemperatura();
 			umidMedia+=i.getUmidade();
 		}
 		
-		tempMedia/=getWeatherData().getWeatherStations().size();
-		umidMedia/=getWeatherData().getWeatherStations().size();
+		tempMedia/=weatherData.getWeatherStations().size();
+		umidMedia/=weatherData.getWeatherStations().size();
 		
 		System.out.println("--------- MÉDIA ---------");
 		System.out.println("Temperatura Média:"+tempMedia+"°C");

@@ -4,16 +4,14 @@ import WeatherData.*;
 
 public class CurrentConditionsDisplay extends Display{
 	
-	public CurrentConditionsDisplay(WeatherData wd) {
-		super(wd);
-	}
 
 	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
+	public void draw(int index) {
 		int count = 0;
+		WeatherData weatherData = this.getWeatherDataList().get(index);
+
 		System.out.println("--------- DADOS ---------");
-		for(WeatherStation i: getWeatherData().getWeatherStations()) {
+		for(WeatherStation i: weatherData.getWeatherStations()) {
 			count++;
 			System.out.println("Regis:"+count+" Temp:"+i.getTemperatura()+" °C | Umid:"+i.getUmidade());
 		}

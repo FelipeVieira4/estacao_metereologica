@@ -1,22 +1,23 @@
 package Displays;
 
+import java.util.ArrayList;
+
 import WeatherData.WeatherData;
 
 public abstract class Display {
 
-	private WeatherData weatherData;
+	private ArrayList<WeatherData> weatherDataList = new ArrayList<>();
 
-	public Display(WeatherData wd){
-		this.setWeatherData(wd);
+	public Display(){
 	}
 
-	public WeatherData getWeatherData() {
-		return weatherData;
+	public ArrayList<WeatherData> getWeatherDataList() {
+		return weatherDataList;
 	}
 
-	public void setWeatherData(WeatherData weatherData) {
+	public void addWeatherData(WeatherData weatherData) {
 		if(weatherData!=null){
-			this.weatherData = weatherData;
+			this.weatherDataList.add(weatherData);
 			return;
 		}
 
@@ -24,9 +25,12 @@ public abstract class Display {
 		System.exit(-1);
 	}
 
-	public abstract void draw();
+	public abstract void draw(int index);
 	
 	public void update(){
-		weatherData.update();
+
+		for(WeatherData weatherData : weatherDataList){
+			weatherData.update();
+		}
 	}
 }
