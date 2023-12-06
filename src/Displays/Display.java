@@ -22,20 +22,20 @@ public abstract class Display {
 	}
 
 	public void setWeatherData(WeatherData weatherData) {
-		if(weatherData!=null){
-			this.weatherData=weatherData;
-			return;
-		}
-
-		System.out.println("ERRO");
-		System.exit(-1);
+		this.weatherData=weatherData;
 	}
 
+	public void update() {
+		if(this.weatherData==null)return;
+		
+		this.draw();
+		this.notifyDisplay();
+	}
 	public abstract void draw();
 	
 
 	public void notifyDisplay(){
-		System.out.println("No Observer:"+id+" Atualizado o WeatherData \n\n");
+		System.out.println("No Observer:"+id+" Atualizado o WeatherData \n");
 		return ;
 	}
 	

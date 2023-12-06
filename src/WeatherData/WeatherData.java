@@ -24,7 +24,7 @@ public class WeatherData {
 	}
 	
 	public void removeWeatherStation(int i) {
-		if(weatherStations.size()-1 > 0 || i < weatherStations.size()) {
+		if(weatherStations.size()-1 < 0 || i > weatherStations.size()) {
 			return;
 		}
 		weatherStations.remove(i);
@@ -45,9 +45,10 @@ public class WeatherData {
 	}
 	
 	public void unsubscribe(int i) {
-		if(observersList.size()-1 > 0 || i < observersList.size()) {
+		if(observersList.size()-1 < 0 || i > observersList.size()) {
 			return;
 		}
+		observersList.get(i).setWeatherData(null);
 		observersList.remove(i);
 		
 	}

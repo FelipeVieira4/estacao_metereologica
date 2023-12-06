@@ -30,7 +30,8 @@ public class WeatherDataCentral {
 		weatherData.subscribe(displays.get(0));
 		weatherData2.subscribe(displays.get(1));
 		weatherData2.subscribe(displays.get(2));
-
+		
+		weatherData2.unsubscribe(1);
 		
 		int x = 0;
 		for(;;) {
@@ -41,7 +42,7 @@ public class WeatherDataCentral {
 			
 			
 			for(Display i : displays) {
-				i.draw();
+				i.update();
 			}
 			
 			
